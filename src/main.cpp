@@ -1329,7 +1329,7 @@ int main(int argc, char *argv[])
 
 	guienv = device->getGUIEnvironment();
 	gui::IGUISkin* skin = guienv->getSkin();
-	gui::IGUIFont* font = guienv->getFont(getTexturePath("fontlucida.png").c_str());
+	gui::IGUIFont* font = guienv->getBuiltInFont();
 	if(font)
 		skin->setFont(font);
 	else
