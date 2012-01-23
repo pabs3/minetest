@@ -872,6 +872,7 @@ minetest.register_node("default:cactus", {
 	is_ground_content = true,
 	groups = {snappy=2,choppy=3},
 	sounds = default.node_sound_wood_defaults(),
+	damage_per_second = 1,
 })
 
 minetest.register_node("default:papyrus", {
