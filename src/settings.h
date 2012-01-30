@@ -36,6 +36,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 using namespace jthread;
 
+using namespace jthread;
+
 enum ValueType
 {
 	VALUETYPE_STRING,
