@@ -156,11 +156,7 @@ endif()
 
 find_package(Jthread REQUIRED)
 find_package(Sqlite3 REQUIRED)
-
-# Do not use system-wide installation of Lua, because it'll likely be a
-# different version and/or has different build options.
-set(LUA_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/lua/src")
-set(LUA_LIBRARY "lua")
+find_package(Lua51 REQUIRED)
 
 configure_file(
 	"${PROJECT_SOURCE_DIR}/cmake_config.h.in"
@@ -505,22 +501,5 @@ if (USE_GETTEXT)
 
 	add_custom_target(translations ALL COMMENT "mo update" DEPENDS ${MO_FILES})
 endif(USE_GETTEXT)
-
-# Subdirectories
-
-if (JTHREAD_FOUND)
-else (JTHREAD_FOUND)
-	add_subdirectory(jthread)
-endif (JTHREAD_FOUND)
-
-if (SQLITE3_FOUND)
-else (SQLITE3_FOUND)
-	add_subdirectory(sqlite)
-endif (SQLITE3_FOUND)
-
-if (LUA_FOUND)
-else (LUA_FOUND)
-	add_subdirectory(lua)
-endif (LUA_FOUND)
 
 #end

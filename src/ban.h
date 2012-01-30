@@ -26,6 +26,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <jmutex.h>
 #include "exceptions.h"
 
+using namespace jthread;
+
 class BanManager
 {
 public:

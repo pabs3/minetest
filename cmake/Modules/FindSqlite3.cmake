@@ -1,4 +1,4 @@
-# Look for sqlite3, use our own if not found
+# Look for sqlite3
 
 FIND_PATH(SQLITE3_INCLUDE_DIR sqlite3.h)
 
@@ -12,7 +12,5 @@ IF(SQLITE3_FOUND)
 	MESSAGE(STATUS "Found system sqlite3 header file in ${SQLITE3_INCLUDE_DIR}")
 	MESSAGE(STATUS "Found system sqlite3 library ${SQLITE3_LIBRARY}")
 ELSE(SQLITE3_FOUND)
-	SET(SQLITE3_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/sqlite)
-	SET(SQLITE3_LIBRARY sqlite3)
-	MESSAGE(STATUS "Using project sqlite3 library")
+	MESSAGE(SEND_ERROR "Did not find system sqlite3 library")
 ENDIF(SQLITE3_FOUND)

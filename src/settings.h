@@ -34,6 +34,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/string.h"
 #include "porting.h"
 
+using namespace jthread;
+
 enum ValueType
 {
 	VALUETYPE_STRING,

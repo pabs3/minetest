@@ -1,4 +1,4 @@
-# Look for jthread, use our own if not found
+# Look for jthread
 
 FIND_PATH(JTHREAD_INCLUDE_DIR jthread.h)
 
@@ -12,7 +12,5 @@ IF(JTHREAD_FOUND)
 	MESSAGE(STATUS "Found system jthread header file in ${JTHREAD_INCLUDE_DIR}")
 	MESSAGE(STATUS "Found system jthread library ${JTHREAD_LIBRARY}")
 ELSE(JTHREAD_FOUND)
-	SET(JTHREAD_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/jthread)
-	SET(JTHREAD_LIBRARY jthread)
-	MESSAGE(STATUS "Using project jthread library")
+	MESSAGE(SEND_ERROR "Did not find system jthread library")
 ENDIF(JTHREAD_FOUND)

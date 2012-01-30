@@ -25,6 +25,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <jmutex.h>
 #include <jmutexautolock.h>
 
+using namespace jthread;
+
 template<typename T>
 class MutexedVariable
 {

@@ -52,6 +52,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	Debug output
 */
 
+using namespace jthread;
+
 #define DTIME (getTimestamp()+": ")
 
 #define DEBUGSTREAM_COUNT 2
