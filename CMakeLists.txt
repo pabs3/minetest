@@ -157,8 +157,12 @@ if(UNIX)
 	install(FILES "doc/minetest.6" "doc/minetestserver.6" DESTINATION "${MANDIR}/man6")
 	install(FILES "misc/minetest.desktop" DESTINATION "${XDG_APPS_DIR}")
 	install(FILES "misc/minetest-icon.svg" DESTINATION "${ICONDIR}/hicolor/scalable/apps")
+	add_custom_command(OUTPUT minetest.png COMMAND rsvg-convert -o misc/minetest.png misc/minetest.svg)
+	#add_custom_command(OUTPUT minetest.png COMMAND rsvg misc/minetest.svg misc/minetest.png)
+	install(FILES "misc/minetest.png" DESTINATION "${ICONDIR}/48x48/apps")
+elseif(WIN32)
+	add_custom_command(OUTPUT minetest.ico COMMAND icotool -c -o misc/minetest.ico misc/minetest.png)
 endif()
-
 #
 # Subdirectories
 # Be sure to add all relevant definitions above this
