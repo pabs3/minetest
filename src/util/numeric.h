@@ -416,4 +416,6 @@ inline u32 npot2(u32 orig) {
 	return orig + 1;
 }
 
+#define util_isnan(a) (!((a)==(a)))
+
 #endif
