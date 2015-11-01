@@ -108,7 +108,14 @@ void *ServerThread::run()
 		} catch (con::ConnectionBindFailed &e) {
 			m_server->setAsyncFatalError(e.what());
 		} catch (LuaError &e) {
-			m_server->setAsyncFatalError("Lua: " + std::string(e.what()));
+			std::ostringstream os(std::ios::binary);
+			os<<"Lua: "<<e.what();
+			std::string bt = m_server->getScriptBacktrace();
+			if(!bt.empty())
+				os<<std::endl<<bt;
+			else
+				os<<std::endl<<"No backtrace.";
+			m_server->setAsyncFatalError(os.str());
 		}
 	}
 
@@ -3112,6 +3119,12 @@ Inventory* Server::createDetachedInventory(const std::string &name)
 	//TODO find a better way to do this
 	sendDetachedInventory(name,PEER_ID_INEXISTENT);
 	return inv;
+}
+
+std::string Server::getScriptBacktrace()
+{
+	MutexAutoLock lock(m_env_mutex);
+	return m_script->getBacktrace();
 }
 
 // actions: time-reversed list

@@ -293,6 +293,8 @@ public:
 	// Envlock and conlock should be locked when using scriptapi
 	GameScripting *getScriptIface(){ return m_script; }
 
+	std::string getScriptBacktrace();
+
 	// actions: time-reversed list
 	// Return value: success/failure
 	bool rollbackRevertActions(const std::list<RollbackAction> &actions,
